@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ace.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ace-rtl.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ace-skins.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ace-ie.min.css') }}"/>
+
+
+    <script src="{{ url_for('static', filename='js/jquery-2.0.3.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-1.10.2.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/excanvas.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/typeahead-bs2.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.mobile.custom.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-ui-1.10.3.custom.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.ui.touch-punch.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.slimscroll.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.easy-pie-chart.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.sparkline.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/flot/jquery.flot.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/flot/jquery.flot.pie.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/flot/jquery.flot.resize.min.js') }}"></script>
+
+</head>
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('navbar', 'fixed')
+        } catch (e) {
+        }
+    </script>
+    {% block nav %}{% endblock %}
+</div>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        {% block menu %}{% endblock %}
+        {% block main %}{% endblock %}
+    </div>
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse" style="margin-right: 20px">
+        <i class="icon-double-angle-up icon-only bigger-200"></i>
+    </a>
+</div>
+<div class="medium-12 text-center footer">
+    <span class="copyright">Copyright © 2015 YBZF Inc 运维团队</span>
+</div>
+<style type="text/css">
+    .footer{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        clear:both;
+    }
+</style>
+</body>
+</html>

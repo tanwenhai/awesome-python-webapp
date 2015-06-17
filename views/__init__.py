@@ -2,6 +2,7 @@
 
 from index import index
 from user import user
+from asset import asset
 from system import system
 from server import server
 from auto import auto

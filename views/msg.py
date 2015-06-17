@@ -6,12 +6,13 @@ from extends import beforeviews
 
 msg = Blueprint('msg', __name__)
 
+ISCHECK = '0002'
 #申请短信通道
 @msg.route('/apply',methods=['GET', 'POST'])
 @login_required
 def _apply():
     menus = beforeviews.getmenus()
-    return render_template("msg/apply.html",menus=menus)
+    return render_template("msg/apply.html",menus=menus,ischeck=ISCHECK+'0001')
 
 
 
@@ -21,4 +22,4 @@ def _apply():
 @login_required
 def _test():
     menus = beforeviews.getmenus()
-    return render_template("msg/test.html",menus=menus)
+    return render_template("msg/test.html",menus=menus,ischeck=ISCHECK+'0002')

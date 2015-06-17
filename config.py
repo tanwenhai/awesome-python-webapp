@@ -12,4 +12,3 @@ DEBUG = True
 BASE_URL = 'http://ops.local.anjuke.com'
 TITLE = 'OPS 自动化运维管理平台'
 
-

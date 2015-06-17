@@ -40,13 +40,13 @@ login_manager.init_app(app)
 
 
 @app.errorhandler(404)
-def error_404(e):
-    return redirect('/error')
+def page_not_found(e):
+    return redirect('/error_404')
 
 
 @app.errorhandler(500)
-def error_500(e):
-    return redirect('/error')
+def internal_server_error(e):
+    return redirect('/error_500')
 
 
 from models.user import UserModel

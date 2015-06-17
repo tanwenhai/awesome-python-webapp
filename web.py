@@ -28,6 +28,7 @@ from views import *
 MODULES = (
     (index, ''),
     (system, '/system'),
+    (asset, '/asset'),
     (msg, '/msg'),
     (server, '/server'),
     (auto, '/auto'),

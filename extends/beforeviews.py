@@ -3,10 +3,9 @@
 # email: jinwei@ybzf.com
 # QQ:1643447974
 #
-# 前置拦截器
+# todo 前置拦截器
 #
 
-from application import app
 from models.menu import MenuModel
 
 
@@ -18,10 +17,3 @@ def getmenus():
         da[int(ch.id)] = MenuModel.query.filter(MenuModel.parent_id == ch.id ).all()
     da['data'] = menus
     return da
-
-def gettitle():
-    return app.config['TITLE']
-
-
-def getbaseurl():
-    return app.config['BASE_URL']

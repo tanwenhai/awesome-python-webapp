@@ -42,11 +42,12 @@
 
         <ul class="nav nav-list">
             {% for menu in menus['data'] %}
-                {% if menu.code == ischeck %}
-                    <li class="active">
-                        {% else %}
-                    <li>
-                {% endif %}
+            {% if menu.code == ischeck[0:4] %}
+                <li class="active open">
+            {% else %}
+                 <li>
+            {% endif %}
+
             <a href="{{ menu.uri }}" class="dropdown-toggle">
                 <i class="icon-{{ menu.css_code }}"></i>
                 <span class="menu-text"> {{ menu.title }} </span>
@@ -55,7 +56,11 @@
                     </a>
                     <ul class="submenu">
                         {% for ch in menus[menu.id] %}
-                            <li>
+                            {% if ch.code == ischeck %}
+                                <li class="active">
+                            {% else %}
+                                <li>
+                            {% endif %}
                                 <a href="{{ ch.uri }}"><i class="icon-{{ ch.css_code }}"></i>{{ ch.title }}</a>
                             </li>
                         {% endfor %}

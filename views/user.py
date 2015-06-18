@@ -1,10 +1,10 @@
 # -*- coding: UTF-8 -*-
 
-from flask import Blueprint, redirect,request,render_template,flash
+from flask import Blueprint, redirect,request,render_template,flash,session
 from flask_login import login_user, logout_user, login_required
 from application import app, db
 from models.user import UserModel
-from extends import common
+from extends import common,beforeviews
 import datetime
 
 
@@ -29,6 +29,7 @@ def login():
             db.session.add(userinfo)
             db.session.commit()
         login_user(userinfo)
+        beforeviews.getmenus()
         return redirect('/')
     else:
         return render_template('user/login.html')
@@ -38,6 +39,8 @@ def login():
 @login_required
 def logout():
     logout_user()
+    if session.has_key('menus'):
+        del session['menus']
     return redirect("/")
 
 

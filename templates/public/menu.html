@@ -41,21 +41,20 @@
         <!-- #sidebar-shortcuts -->
 
         <ul class="nav nav-list">
-            {% for menu in menus['data'] %}
+            {% for menu in session['menus']['data'] %}
             {% if menu.code == ischeck[0:4] %}
                 <li class="active open">
             {% else %}
                  <li>
             {% endif %}
-
             <a href="{{ menu.uri }}" class="dropdown-toggle">
                 <i class="icon-{{ menu.css_code }}"></i>
                 <span class="menu-text"> {{ menu.title }} </span>
-                {% if  menus[menu.id] %}
+                {% if  session['menus'][menu.id|string] %}
                     <b class="arrow icon-angle-down"></b>
                     </a>
                     <ul class="submenu">
-                        {% for ch in menus[menu.id] %}
+                        {% for ch in session['menus'][menu.id|string] %}
                             {% if ch.code == ischeck %}
                                 <li class="active">
                             {% else %}

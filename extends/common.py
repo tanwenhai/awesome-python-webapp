@@ -18,3 +18,10 @@ def md5(string):
     else:
         return ''
 
+
+
+def convert_to_dict(obj):
+    """把Object对象转换成Dict对象"""
+    d = {}
+    d.update(obj.__dict__)
+    return d

@@ -2,6 +2,7 @@
 
 from flask import Blueprint,render_template
 from flask_login import login_required
+from models.category import CategoryModel
 
 job = Blueprint('job', __name__)
 
@@ -11,4 +12,5 @@ ISCHECK = '0005'
 @job.route('/',methods=['GET', 'POST'])
 @login_required
 def _index():
-    return render_template("job/index.html",ischeck=ISCHECK)
+    data = CategoryModel.query.all()
+    return render_template("job/index.html",data=data,ischeck=ISCHECK)

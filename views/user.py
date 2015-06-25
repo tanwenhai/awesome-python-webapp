@@ -7,7 +7,7 @@ from models.user import UserModel
 from extends import common,beforeviews
 import datetime
 
-
+ISCHECK = '0012'
 
 user = Blueprint('user', __name__)
 app.secret_key='ybzf-ops'
@@ -44,3 +44,12 @@ def logout():
     return redirect("/")
 
 
+@user.route('/reset')
+@login_required
+def _reset():
+    return render_template('user/reset.html',ischeck=ISCHECK)
+
+@user.route('/info')
+@login_required
+def _info():
+    return render_template('user/index.html',ischeck=ISCHECK)

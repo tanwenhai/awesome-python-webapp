@@ -32,3 +32,10 @@ class MenuModel(db.Model):
         return self.id
 
 
+    def getmenus(self):
+        return self.query.all()
+
+def add(data):
+    new_item = MenuModel(data)
+    db.session.add(new_item)
+    db.session.commit()

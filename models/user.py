@@ -20,7 +20,7 @@ class UserModel(db.Model):
         self.oauth_token = oauth_token
         self.oauth_id = oauth_id
         self.name = name
-        self.employee_id = password
+        self.password = password
         self.email = email
         self.mobile = mobile
         self.created = created

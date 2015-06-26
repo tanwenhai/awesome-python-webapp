@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from flask import Blueprint,render_template
+from flask import Blueprint,render_template,request
 from flask_login import login_required
 from models.msgprovide import MsgprovideModel
 from models.msgcode import MsgcodeModel
@@ -36,6 +36,16 @@ def _provide():
     titles = ['Home','Msg','list']
     return render_template("msg/provide.html",list=li,ischeck=ISCHECK+'0003',titles=titles)
 
+#短信供应商列表
+@msg.route('/update',methods=['GET', 'POST'])
+@login_required
+def _update():
+    if request.method == 'GET':
+        mid = request.args['id']
+        result = MsgprovideModel.query.filter(MsgprovideModel.id == mid).first()
+
+    titles = ['Home','Msg','update']
+    return render_template("msg/update.html",result=result,ischeck=ISCHECK+'0003',titles=titles)
 
 
 #短信通道列表
